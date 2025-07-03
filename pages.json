@@ -1,9 +1,40 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/grower/grower",
+			"style": {
+				"navigationBarTitleText": "花卉种植者"
+			}
+		},
+		{
+			"path": "pages/seller/seller",
+			"style": {
+				"navigationBarTitleText": "花卉售卖者"
+			}
+		},
+		{
+			"path": "pages/seller/huapeng",
+			"style": {
+				"navigationBarTitleText": "附近花棚"
+			}
+		},
+		{
+			"path": "pages/seller/user",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/seller/address",
+			"style": {
+				"navigationBarTitleText": "我的地址",
+				"navigationStyle": "custom"
 			}
 		}
 	],

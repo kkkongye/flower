@@ -1,0 +1,59 @@
+
+.container {
+		padding: 40rpx 20rpx;
+		background: #f8faf6;
+		min-height: 100vh;
+}
+.title {
+		font-size: 36rpx;
+		font-weight: bold;
+		margin-bottom: 10rpx;
+}
+.subtitle {
+		color: #b0b0b0;
+		font-size: 24rpx;
+		margin-bottom: 30rpx;
+}
+.avatar-wrap {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 30rpx;
+}
+.avatar {
+		width: 80rpx;
+		height: 80rpx;
+		border-radius: 50%;
+		background: #eee;
+}
+.role-card {
+		display: flex;
+		align-items: center;
+		background: #fff;
+		border-radius: 20rpx;
+		margin-bottom: 30rpx;
+		padding: 20rpx;
+		box-shadow: 0 2rpx 8rpx #e8e8e8;
+}
+.role-img {
+		width: 100rpx;
+		height: 100rpx;
+		border-radius: 50%;
+		margin-right: 20rpx;
+}
+.role-info {
+		flex: 1;
+}
+.role-title {
+		font-size: 32rpx;
+		font-weight: bold;
+		margin-bottom: 8rpx;
+}
+.role-desc {
+		color: #b0b0b0;
+		font-size: 24rpx;
+		margin-bottom: 8rpx;
+}
+.role-link {
+		color: #4e8ef7;
+		font-size: 24rpx;
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"seller.js","sources":["../../HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvc2VsbGVyL3NlbGxlci52dWU"],"sourcesContent":["import MiniProgramPage from 'D:/hbuilder/flower/pages/seller/seller.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

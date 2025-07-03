@@ -1,0 +1,1 @@
+{"version":3,"file":"grower.js","sources":["../../HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvZ3Jvd2VyL2dyb3dlci52dWU"],"sourcesContent":["import MiniProgramPage from 'D:/hbuilder/flower/pages/grower/grower.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

@@ -1,0 +1,225 @@
+<template>
+  <view class="container">
+    <!-- 个人信息 -->
+    <view class="user-info">
+      <image class="avatar" src="/static/init/用户.png"></image>
+      <view class="user-detail">
+        <view class="username">用户名称</view>
+        <view class="user-id">ID: 12345678</view>
+      </view>
+      <view class="edit-btn">编辑</view>
+    </view>
+    
+    <!-- 功能列表 -->
+    <view class="function-list">
+      <view class="function-group">
+        <view class="function-item" @click="goToAddress">
+          <text class="iconfont">&#xe614;</text>
+          <text class="function-name">我的地址</text>
+          <text class="iconfont arrow">&#xe6a3;</text>
+        </view>
+        <view class="function-item">
+          <text class="iconfont">&#xe63f;</text>
+          <text class="function-name">我的订单</text>
+          <text class="iconfont arrow">&#xe6a3;</text>
+        </view>
+        <view class="function-item">
+          <text class="iconfont">&#xe6bd;</text>
+          <text class="function-name">我的收藏</text>
+          <text class="iconfont arrow">&#xe6a3;</text>
+        </view>
+      </view>
+      
+      <view class="function-group">
+        <view class="function-item">
+          <text class="iconfont">&#xe65a;</text>
+          <text class="function-name">设置</text>
+          <text class="iconfont arrow">&#xe6a3;</text>
+        </view>
+        <view class="function-item">
+          <text class="iconfont">&#xe633;</text>
+          <text class="function-name">帮助中心</text>
+          <text class="iconfont arrow">&#xe6a3;</text>
+        </view>
+        <view class="function-item">
+          <text class="iconfont">&#xe62e;</text>
+          <text class="function-name">关于我们</text>
+          <text class="iconfont arrow">&#xe6a3;</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 底部导航栏 -->
+    <view class="tabbar">
+      <view class="tab-item" @click="goToHuapeng">
+        <text class="iconfont">&#xe67e;</text>
+        <text>花棚</text>
+      </view>
+      <view class="tab-item ai-tab" @click="goToAIGC">
+        <view class="ai-circle">
+          <text class="iconfont">&#xe65b;</text>
+        </view>
+        <text>AIGC推荐</text>
+      </view>
+      <view class="tab-item active">
+        <text class="iconfont">&#xe8a0;</text>
+        <text>我的</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  methods: {
+    goToHome() {
+      uni.navigateTo({
+        url: '/pages/seller/seller'
+      })
+    },
+    goToHuapeng() {
+      uni.navigateTo({
+        url: '/pages/seller/huapeng'
+      })
+    },
+    goToAIGC() {
+      uni.navigateTo({
+        url: '/pages/seller/seller'
+      })
+    },
+    goToAddress() {
+      uni.navigateTo({
+        url: '/pages/seller/address'
+      })
+    }
+  }
+}
+</script>
+
+<style>
+/* 引入图标字体 */
+@font-face {
+  font-family: "iconfont";
+  src: url('https://at.alicdn.com/t/c/font_3965964_i9oe15z84hp.woff2?t=1680144966254') format('woff2');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 36rpx;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding-bottom: 120rpx;
+}
+
+/* 个人信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  background-color: #fff;
+}
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+.user-detail {
+  flex: 1;
+  margin-left: 30rpx;
+}
+.username {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.user-id {
+  font-size: 26rpx;
+  color: #999;
+}
+.edit-btn {
+  padding: 10rpx 30rpx;
+  background-color: #f5f5f5;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+
+/* 功能列表 */
+.function-list {
+  margin-top: 20rpx;
+}
+.function-group {
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin: 20rpx;
+  overflow: hidden;
+}
+.function-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.function-item:last-child {
+  border-bottom: none;
+}
+.function-item .iconfont {
+  font-size: 40rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+.function-name {
+  flex: 1;
+  font-size: 28rpx;
+}
+.arrow {
+  color: #ccc;
+}
+
+/* 底部导航栏 */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #666;
+}
+.tab-item.active {
+  color: #4e8ef7;
+}
+.tab-item text {
+  line-height: 1.2;
+}
+.ai-tab {
+  position: relative;
+  top: -20rpx;
+}
+.ai-circle {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #a7c4a0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ai-circle .iconfont {
+  color: #fff;
+  font-size: 40rpx;
+}
+</style> 
