@@ -2,9 +2,9 @@
   <view class="container">
     <!-- 搜索框 -->
     <view class="search-bar">
-      <text class="iconfont">&#xe65c;</text>
-      <input type="text" placeholder="搜索" disabled />
-      <text class="iconfont search-icon">&#xe61a;</text>
+      <icon type="search" size="15" color="#07C160" />
+      <input type="text" value="玫瑰" disabled />
+      <text class="iconfont search-icon">搜索</text>
     </view>
     
     <!-- 上次订购 -->
@@ -57,17 +57,17 @@
     <!-- 底部导航栏 -->
     <view class="tabbar">
       <view class="tab-item" @click="goToHuapeng">
-        <text class="iconfont">&#xe67e;</text>
+        <image class="tab-icon" src="/static/icon/location.png"></image>
         <text>花棚</text>
       </view>
       <view class="tab-item ai-tab active">
         <view class="ai-circle">
-          <text class="iconfont">&#xe65b;</text>
+          <image class="tab-icon" src="/static/icon/AIGC2.png"></image>
         </view>
         <text>AIGC推荐</text>
       </view>
       <view class="tab-item" @click="goToUser">
-        <text class="iconfont">&#xe8a0;</text>
+        <image class="tab-icon" src="/static/icon/user.png"></image>
         <text>我的</text>
       </view>
     </view>
@@ -213,10 +213,15 @@ export default {
   color: #666;
 }
 .tab-item.active {
-  color: #4e8ef7;
+  color: #6eb56e;
 }
 .tab-item text {
   line-height: 1.2;
+}
+.tab-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 4rpx;
 }
 .ai-tab {
   position: relative;
@@ -231,8 +236,9 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.ai-circle .iconfont {
-  color: #fff;
-  font-size: 40rpx;
+.ai-circle .tab-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0;
 }
 </style> 
