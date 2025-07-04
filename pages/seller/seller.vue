@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <!-- 页面标题 -->
-    <page-title title="花卉售卖者"></page-title>
+    <page-title title="花卉零售者"></page-title>
     
     <!-- 搜索框 -->
     <view class="search-bar">
@@ -114,7 +114,7 @@
     
     <!-- 悬浮按钮 -->
     <view class="float-buttons">
-      <view class="float-button kefu">
+      <view class="float-button kefu" @click="goToServiceChat">
         <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
       </view>
       <view class="float-button cart" @click="goToCart">
@@ -186,6 +186,11 @@ export default {
       uni.navigateTo({
         url: '/pages/seller/flower-detail?id=' + id
       });
+    },
+    goToServiceChat() {
+      uni.navigateTo({
+        url: '/pages/seller/service-chat'
+      })
     }
   }
 }

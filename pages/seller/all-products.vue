@@ -67,7 +67,7 @@
     
     <!-- 悬浮按钮 -->
     <view class="float-buttons">
-      <view class="float-button kefu">
+      <view class="float-button kefu" @click="goToServiceChat">
         <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
       </view>
       <view class="float-button cart" @click="goToCart">
@@ -137,7 +137,7 @@ export default {
           tag: '月季·爬藤',
           image: '/static/flower/flower1.jpg',
           category: 0,
-          showService: true
+          showService: false
         },
         {
           id: '7',
@@ -205,6 +205,11 @@ export default {
       uni.navigateTo({
         url: '/pages/seller/flower-detail?id=' + product.id
       });
+    },
+    goToServiceChat() {
+      uni.navigateTo({
+        url: '/pages/seller/service-chat'
+      })
     }
   }
 }

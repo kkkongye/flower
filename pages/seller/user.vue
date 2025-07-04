@@ -76,7 +76,7 @@
 
     <!-- 悬浮按钮 -->
     <view class="float-buttons">
-      <view class="float-button kefu">
+      <view class="float-button kefu" @click="goToServiceChat">
         <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
       </view>
       <view class="float-button cart" @click="goToCart">
@@ -145,6 +145,11 @@ export default {
     goToOrders() {
       uni.navigateTo({
         url: '/pages/seller/orders'
+      })
+    },
+    goToServiceChat() {
+      uni.navigateTo({
+        url: '/pages/seller/service-chat'
       })
     }
   }

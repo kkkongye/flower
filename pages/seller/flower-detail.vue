@@ -104,6 +104,11 @@
         <view class="buy-now-btn" @click="buyNow">立即购买</view>
       </view>
     </view>
+
+    <!-- 在页面底部添加悬浮按钮 -->
+    <view class="float-home-btn" @click="goToSellerHome">
+      <image class="home-icon" src="/static/menu-icons/home.png"></image>
+    </view>
   </view>
 </template>
 
@@ -176,6 +181,11 @@ export default {
       uni.navigateTo({
         url: '/pages/seller/cart'
       });
+    },
+    goToSellerHome() {
+      uni.navigateTo({
+        url: '/pages/seller/seller'
+      })
     }
   }
 }
@@ -383,5 +393,25 @@ export default {
 }
 .buy-now-btn {
   background-color: #ff6b6b;
+}
+
+/* 在页面底部添加悬浮按钮 */
+.float-home-btn {
+  position: fixed;
+  bottom: 220rpx;
+  right: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.home-icon {
+  width: 48rpx;
+  height: 48rpx;
 }
 </style> 

@@ -89,6 +89,13 @@
 				"navigationBarTitleText": "商品详情",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/seller/service-chat",
+			"style": {
+				"navigationBarTitleText": "在线客服",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
