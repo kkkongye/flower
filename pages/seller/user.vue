@@ -43,7 +43,7 @@
         <view class="function-item">
           <view class="icon-wrapper">
             <image class="menu-icon" src="/static/menu-icons/about.png"></image>
-          </view>
+        </view>
           <text class="function-name">帮助中心</text>
           <image class="arrow-icon" src="/static/menu-icons/arrow-right.png"></image>
         </view>

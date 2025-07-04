@@ -55,7 +55,10 @@
     
     <!-- 悬浮按钮 -->
     <view class="float-buttons">
-      <view class="float-button kefu">
+      <view class="float-button home" @click="goToHome">
+        <image class="float-icon" src="/static/icon/AIGC.png"></image>
+      </view>
+      <view class="float-button kefu" @click="goToServiceChat">
         <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
       </view>
       <view class="float-button cart" @click="goToCart">
@@ -144,6 +147,16 @@ export default {
     },
     goBack() {
       uni.navigateBack();
+    },
+    goToHome() {
+      uni.navigateTo({
+        url: '/pages/seller/seller'
+      })
+    },
+    goToServiceChat() {
+      uni.navigateTo({
+        url: '/pages/seller/service-chat'
+      })
     }
   }
 }

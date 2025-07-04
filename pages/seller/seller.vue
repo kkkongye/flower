@@ -126,7 +126,7 @@
     <view class="tabbar">
       <view class="tab-item" @click="goToHuapeng">
         <image class="tab-icon" src="/static/icon/location.png"></image>
-        <text>花棚</text>
+        <text>花房</text>
       </view>
       <view class="tab-item ai-tab active">
         <view class="ai-circle">

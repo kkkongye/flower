@@ -1,45 +1,35 @@
 <template>
   <view class="container">
     <!-- 页面标题 -->
-    <page-title title="附近花棚"></page-title>
+    <page-title title="附近花房"></page-title>
     
     <!-- 搜索框 -->
     <view class="search-bar">
       <icon type="search" size="15" color="#07C160" />
-      <input type="text" value="花房" disabled />
-      <text class="iconfont search-icon">搜索</text>
+      <input type="text" v-model="searchText" placeholder="搜索花房名称或地址" @input="filterHuapeng" />
+      <text class="iconfont search-icon" @click="filterHuapeng">搜索</text>
     </view>
     
-    <!-- 花棚列表 -->
+    <!-- 花房列表 -->
     <view class="huapeng-list">
-      <view class="huapeng-item">
-        <image src="/static/huapeng/huapeng1.png" mode="aspectFill"></image>
+      <view class="huapeng-item" v-for="(item, index) in filteredHuapeng" :key="index">
+        <image :src="item.image" mode="aspectFill"></image>
         <view class="location">
-          <text>杭州市什么西路数字花房</text>
-          <text class="distance">0.5km</text>
+          <text>{{ item.name }}</text>
+          <text class="distance">{{ item.distance }}</text>
         </view>
       </view>
       
-      <view class="huapeng-item">
-        <image src="/static/huapeng/huapeng2.png" mode="aspectFill"></image>
-        <view class="location">
-          <text>杭州市什么西路数字花房</text>
-          <text class="distance">1.4km</text>
-        </view>
-      </view>
-      
-      <view class="huapeng-item">
-        <image src="/static/huapeng/huapeng3.png" mode="aspectFill"></image>
-        <view class="location">
-          <text>杭州市什么西路数字花房</text>
-          <text class="distance">1.9km</text>
-        </view>
+      <!-- 无结果提示 -->
+      <view class="no-result" v-if="filteredHuapeng.length === 0">
+        <image src="/static/icon/no-result.png" class="no-result-icon"></image>
+        <text class="no-result-text">没有找到相关花房</text>
       </view>
     </view>
     
     <!-- 悬浮按钮 -->
     <view class="float-buttons">
-      <view class="float-button kefu">
+      <view class="float-button kefu" @click="goToServiceChat">
         <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
       </view>
       <view class="float-button cart" @click="goToCart">
@@ -51,7 +41,7 @@
     <view class="tabbar">
       <view class="tab-item active">
         <image class="tab-icon" src="/static/icon/location2.png"></image>
-        <text>花棚</text>
+        <text>花房</text>
       </view>
       <view class="tab-item ai-tab" @click="goToAIGC">
         <view class="ai-circle">
@@ -74,7 +64,50 @@ export default {
   components: {
     pageTitle
   },
+  data() {
+    return {
+      searchText: '',
+      huapengList: [
+        {
+          name: '杭州市西湖区数字花房',
+          image: '/static/huapeng/huapeng1.png',
+          distance: '0.5km',
+          address: '杭州市西湖区文一西路'
+        },
+        {
+          name: '杭州市余杭区创意花房',
+          image: '/static/huapeng/huapeng2.png',
+          distance: '1.4km',
+          address: '杭州市余杭区文一西路'
+        },
+        {
+          name: '杭州市滨江区绿植花房',
+          image: '/static/huapeng/huapeng3.png',
+          distance: '1.9km',
+          address: '杭州市滨江区滨盛路'
+        }
+      ],
+      filteredHuapeng: []
+    }
+  },
+  created() {
+    // 初始化显示所有花房
+    this.filteredHuapeng = [...this.huapengList];
+  },
   methods: {
+    // 根据输入文字筛选花房
+    filterHuapeng() {
+      if (!this.searchText) {
+        this.filteredHuapeng = [...this.huapengList];
+        return;
+      }
+      
+      const keyword = this.searchText.toLowerCase();
+      this.filteredHuapeng = this.huapengList.filter(item => {
+        return item.name.toLowerCase().includes(keyword) || 
+               item.address.toLowerCase().includes(keyword);
+      });
+    },
     goToHome() {
       uni.navigateTo({
         url: '/pages/seller/seller'
@@ -93,6 +126,11 @@ export default {
     goToCart() {
       uni.navigateTo({
         url: '/pages/seller/cart'
+      })
+    },
+    goToServiceChat() {
+      uni.navigateTo({
+        url: '/pages/seller/service-chat'
       })
     }
   }
@@ -242,5 +280,26 @@ export default {
   width: 48rpx;
   height: 48rpx;
   margin: 0;
+}
+
+/* 无结果提示 */
+.no-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.no-result-icon {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.6;
+}
+
+.no-result-text {
+  font-size: 30rpx;
+  color: #999;
 }
 </style> 

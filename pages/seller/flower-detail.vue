@@ -83,6 +83,19 @@
       </view>
     </view>
     
+    <!-- 悬浮按钮 -->
+    <view class="float-buttons">
+      <view class="float-button home" @click="goToHome">
+        <image class="float-icon" src="/static/icon/AIGC.png"></image>
+      </view>
+      <view class="float-button kefu" @click="goToServiceChat">
+        <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
+      </view>
+      <view class="float-button cart" @click="goToCart">
+        <image class="float-icon" src="/static/menu-icons/shop.png"></image>
+      </view>
+    </view>
+    
     <!-- 底部操作栏 -->
     <view class="bottom-actions">
       <view class="action-icons">
@@ -103,11 +116,6 @@
         <view class="add-cart-btn" @click="addToCart">加入购物车</view>
         <view class="buy-now-btn" @click="buyNow">立即购买</view>
       </view>
-    </view>
-
-    <!-- 在页面底部添加悬浮按钮 -->
-    <view class="float-home-btn" @click="goToSellerHome">
-      <image class="home-icon" src="/static/menu-icons/home.png"></image>
     </view>
   </view>
 </template>
@@ -182,9 +190,14 @@ export default {
         url: '/pages/seller/cart'
       });
     },
-    goToSellerHome() {
+    goToHome() {
       uni.navigateTo({
         url: '/pages/seller/seller'
+      })
+    },
+    goToServiceChat() {
+      uni.navigateTo({
+        url: '/pages/seller/service-chat'
       })
     }
   }
@@ -395,22 +408,28 @@ export default {
   background-color: #ff6b6b;
 }
 
-/* 在页面底部添加悬浮按钮 */
-.float-home-btn {
+/* 悬浮按钮 */
+.float-buttons {
   position: fixed;
-  bottom: 220rpx;
+  bottom: 140rpx;
   right: 20rpx;
-  width: 80rpx;
-  height: 80rpx;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   z-index: 999;
 }
-.home-icon {
+.float-button {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+.float-icon {
   width: 48rpx;
   height: 48rpx;
 }
