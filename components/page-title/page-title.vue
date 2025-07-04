@@ -1,5 +1,8 @@
 <template>
   <view class="page-title">
+    <view v-if="showBack" class="back-btn" @click="goBack">
+      <text class="back-icon">←</text>
+    </view>
     <text class="title-text">{{ title }}</text>
   </view>
 </template>
@@ -11,6 +14,27 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    showBack: {
+      type: Boolean,
+      default: false
+    },
+    backUrl: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    goBack() {
+      if (this.backUrl) {
+        uni.navigateTo({
+          url: this.backUrl
+        })
+      } else {
+        uni.navigateBack({
+          delta: 1
+        })
+      }
     }
   }
 }
@@ -34,6 +58,21 @@ export default {
 .title-text {
   font-size: 32rpx;
   font-weight: bold;
+  color: #333;
+}
+
+.back-btn {
+  position: absolute;
+  left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.back-icon {
+  font-size: 40rpx;
   color: #333;
 }
 </style> 

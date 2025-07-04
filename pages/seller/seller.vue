@@ -12,11 +12,22 @@
     
     <!-- 上次订购 -->
     <view class="section">
-      <view class="section-title">上次订购</view>
+      <view class="section-title-wrapper" @click="goToAllProducts">
+        <view class="section-title">
+          上次订购
+          <text class="right-arrow">></text>
+        </view>
+      </view>
       <scroll-view scroll-x class="scroll-view">
         <view class="flower-list">
-          <view class="flower-item" v-for="(item, index) in [0 , 1, 2]" :key="index">
-            <image :src="`/static/flower/flower${index+1}.jpg`" mode="aspectFill"></image>
+          <view class="flower-item" @click="goToDetail('1')">
+            <image src="/static/flower/flower6.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('2')">
+            <image src="/static/flower/flower.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('3')">
+            <image src="/static/flower/flower1.jpg" mode="aspectFill"></image>
           </view>
         </view>
       </scroll-view>
@@ -24,35 +35,79 @@
     
     <!-- 上次生成推荐 -->
     <view class="section">
-      <view class="section-title">上次生成推荐</view>
+      <view class="section-title-wrapper" @click="goToAllProducts">
+        <view class="section-title">
+          上次生成推荐
+          <text class="right-arrow">></text>
+        </view>
+      </view>
       <scroll-view scroll-x class="scroll-view">
         <view class="flower-list">
-          <view class="flower-item" v-for="(item, index) in [4, 5, 6]" :key="index">
-            <image :src="`/static/flower/flower${index+1}.jpg`" mode="aspectFill"></image>
+          <view class="flower-item" @click="goToDetail('4')">
+            <image src="/static/flower/flower4.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('5')">
+            <image src="/static/flower/flower3.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('6')">
+            <image src="/static/flower/flower5.jpg" mode="aspectFill"></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 全部 -->
+    <view class="section">
+      <view class="section-title-wrapper" @click="goToAllProducts">
+        <view class="section-title">
+          全部
+          <text class="right-arrow">></text>
+        </view>
+      </view>
+      <scroll-view scroll-x class="scroll-view">
+        <view class="flower-list">
+          <view class="flower-item" @click="goToDetail('7')">
+            <image src="/static/flower/flower1.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('8')">
+            <image src="/static/flower/flower2.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('9')">
+            <image src="/static/flower/flower3.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('10')">
+            <image src="/static/flower/flower4.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('11')">
+            <image src="/static/flower/flower5.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="flower-item" @click="goToDetail('12')">
+            <image src="/static/flower/flower6.jpg" mode="aspectFill"></image>
           </view>
         </view>
       </scroll-view>
     </view>
     
+    
     <!-- 今日推荐 -->
     <view class="section">
       <view class="section-title">今日推荐</view>
       <view class="recommend-list">
-        <view class="recommend-item">
+        <view class="recommend-item" @click="goToDetail('13')">
           <view class="recommend-title">
             礼物指南
             <text class="more">>></text>
           </view>
           <view class="recommend-desc">真心落为心中挚爱</view>
-          <image src="/static/flower/flower1.jpg" mode="aspectFill"></image>
+          <image src="/static/flower/flower6.jpg" mode="aspectFill"></image>
         </view>
-        <view class="recommend-item">
+        <view class="recommend-item" @click="goToDetail('14')">
           <view class="recommend-title">
             节日特供
             <text class="more">>></text>
           </view>
           <view class="recommend-desc">好礼相伴好时节</view>
-          <image src="/static/flower/flower2.jpg" mode="aspectFill"></image>
+          <image src="/static/flower/flower4.jpg" mode="aspectFill"></image>
         </view>
       </view>
     </view>
@@ -112,6 +167,25 @@ export default {
       uni.navigateTo({
         url: '/pages/seller/cart'
       })
+    },
+    goToAllProducts() {
+      console.log('点击了全部商品');
+      setTimeout(() => {
+        uni.navigateTo({
+          url: '/pages/seller/all-products',
+          success: function() {
+            console.log('导航成功');
+          },
+          fail: function(error) {
+            console.error('导航失败:', error);
+          }
+        });
+      }, 100);
+    },
+    goToDetail(id) {
+      uni.navigateTo({
+        url: '/pages/seller/flower-detail?id=' + id
+      });
     }
   }
 }
@@ -157,11 +231,24 @@ export default {
 .section {
   margin: 30rpx 0;
 }
+.section-title-wrapper {
+  padding: 10rpx;
+  margin: 0 10rpx 10rpx;
+  border-radius: 8rpx;
+  background-color: rgba(255,255,255,0.5);
+}
 .section-title {
   font-size: 32rpx;
   font-weight: bold;
-  padding: 0 20rpx;
-  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.right-arrow {
+  color: #999;
+  font-size: 26rpx;
+  margin-left: 10rpx;
 }
 .scroll-view {
   white-space: nowrap;
@@ -289,5 +376,16 @@ export default {
   width: 48rpx;
   height: 48rpx;
   margin: 0;
+}
+
+/* 添加点击效果 */
+.section-title:active {
+  opacity: 0.7;
+}
+
+/* 添加点击效果 */
+.section-title-wrapper:active {
+  opacity: 0.7;
+  background-color: rgba(255,255,255,0.8);
 }
 </style> 

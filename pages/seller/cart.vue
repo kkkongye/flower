@@ -401,17 +401,6 @@ export default {
   box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
 }
 
-.float-button.kefu {
-  background-color: #6eb56e;
-}
-
-.float-button.cart {
-  background-color: #a7c4a0;
-}
-
-.float-button.cart.active {
-  background-color: #6eb56e;
-}
 
 .float-icon {
   width: 48rpx;

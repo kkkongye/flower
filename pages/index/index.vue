@@ -3,7 +3,7 @@
 		<view class="header">
 			<view class="title-area">
 				<view class="title">请选择当前的角色</view>
-				<view class="subtitle">可以在 我的-页面切换</view>
+				<view class="subtitle">可以在 我的-角色切换中切换</view>
 			</view>
 			<image class="avatar" src="/static/init/用户.png"></image>
 		</view>

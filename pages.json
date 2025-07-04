@@ -75,6 +75,20 @@
 				"navigationBarTitleText": "订单列表",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/seller/all-products",
+			"style": {
+				"navigationBarTitleText": "全部商品",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/seller/flower-detail",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
