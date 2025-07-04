@@ -1,5 +1,8 @@
 <template>
   <view class="container">
+    <!-- 页面标题 -->
+    <page-title title="附近花棚"></page-title>
+    
     <!-- 搜索框 -->
     <view class="search-bar">
       <icon type="search" size="15" color="#07C160" />
@@ -34,6 +37,16 @@
       </view>
     </view>
     
+    <!-- 悬浮按钮 -->
+    <view class="float-buttons">
+      <view class="float-button kefu">
+        <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
+      </view>
+      <view class="float-button cart" @click="goToCart">
+        <image class="float-icon" src="/static/menu-icons/shop.png"></image>
+      </view>
+    </view>
+    
     <!-- 底部导航栏 -->
     <view class="tabbar">
       <view class="tab-item active">
@@ -55,7 +68,12 @@
 </template>
 
 <script>
+import pageTitle from '@/components/page-title/page-title.vue'
+
 export default {
+  components: {
+    pageTitle
+  },
   methods: {
     goToHome() {
       uni.navigateTo({
@@ -70,6 +88,11 @@ export default {
     goToUser() {
       uni.navigateTo({
         url: '/pages/seller/user'
+      })
+    },
+    goToCart() {
+      uni.navigateTo({
+        url: '/pages/seller/cart'
       })
     }
   }
@@ -91,6 +114,7 @@ export default {
   min-height: 100vh;
   background-color: #f8f8f8;
   padding-bottom: 120rpx;
+  padding-top: 100rpx; /* 为固定标题栏预留空间 */
 }
 
 /* 搜索框 */
@@ -142,6 +166,31 @@ export default {
 .distance {
   margin-left: auto;
   color: #999;
+}
+
+/* 悬浮按钮 */
+.float-buttons {
+  position: fixed;
+  bottom: 140rpx;
+  right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.float-button {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+.float-icon {
+  width: 48rpx;
+  height: 48rpx;
 }
 
 /* 底部导航栏 */

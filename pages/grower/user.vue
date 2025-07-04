@@ -16,25 +16,18 @@
     <!-- 功能列表 -->
     <view class="function-list">
       <view class="function-group">
-        <view class="function-item" @click="goToAddress">
+        <view class="function-item">
           <view class="icon-wrapper">
-            <image class="menu-icon" src="/static/icon/location.png"></image>
+            <image class="menu-icon" src="/static/menu-icons/greenhouse.png"></image>
           </view>
-          <text class="function-name">我的地址</text>
-          <image class="arrow-icon" src="/static/menu-icons/arrow-right.png"></image>
-        </view>
-        <view class="function-item" @click="goToOrders">
-          <view class="icon-wrapper">
-            <image class="menu-icon" src="/static/menu-icons/record.png"></image>
-          </view>
-          <text class="function-name">我的订单</text>
+          <text class="function-name">花房管理</text>
           <image class="arrow-icon" src="/static/menu-icons/arrow-right.png"></image>
         </view>
         <view class="function-item">
           <view class="icon-wrapper">
-            <image class="menu-icon" src="/static/menu-icons/star.png"></image>
+            <image class="menu-icon" src="/static/menu-icons/record.png"></image>
           </view>
-          <text class="function-name">我的收藏</text>
+          <text class="function-name">生产记录</text>
           <image class="arrow-icon" src="/static/menu-icons/arrow-right.png"></image>
         </view>
       </view>
@@ -62,33 +55,24 @@
           <image class="arrow-icon" src="/static/menu-icons/arrow-right.png"></image>
         </view>
       </view>
+    </view>
 
-      <view class="function-group" @click="goToIndex">
+          
+    <view class="function-group" @click="goToIndex">
         <view class="function-item">
           <view class="icon-wrapper">
             <image class="menu-icon" src="/static/menu-icons/role.png"></image>
           </view>
-          <text class="function-name">角色切换</text>
+          <text class="function-name">切换角色</text>
           <image class="arrow-icon" src="/static/menu-icons/arrow-right.png"></image>
         </view>
-      </view>
-    </view>
-
-    <!-- 悬浮按钮 -->
-    <view class="float-buttons">
-      <view class="float-button kefu">
-        <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
-      </view>
-      <view class="float-button cart" @click="goToCart">
-        <image class="float-icon" src="/static/menu-icons/shop.png"></image>
-      </view>
     </view>
     
     <!-- 底部导航栏 -->
     <view class="tabbar">
       <view class="tab-item" @click="goToHuapeng">
         <image class="tab-icon" src="/static/icon/location.png"></image>
-        <text>花房</text>
+        <text>花棚</text>
       </view>
       <view class="tab-item ai-tab" @click="goToAIGC">
         <view class="ai-circle">
@@ -112,19 +96,9 @@ export default {
     pageTitle
   },
   methods: {
-    goToHome() {
-      uni.navigateTo({
-        url: '/pages/seller/seller'
-      })
-    },
     goToHuapeng() {
       uni.navigateTo({
-        url: '/pages/seller/huapeng'
-      })
-    },
-    goToAIGC() {
-      uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/grower/grower'
       })
     },
     goToIndex() {
@@ -132,19 +106,9 @@ export default {
         url: '/pages/index/index'
       })
     },
-    goToAddress() {
+    goToAIGC() {
       uni.navigateTo({
-        url: '/pages/seller/address'
-      })
-    },
-    goToCart() {
-      uni.navigateTo({
-        url: '/pages/seller/cart'
-      })
-    },
-    goToOrders() {
-      uni.navigateTo({
-        url: '/pages/seller/orders'
+        url: '/pages/grower/aigc'
       })
     }
   }
@@ -318,36 +282,5 @@ export default {
   width: 48rpx;
   height: 48rpx;
   margin: 0;
-}
-
-/* 悬浮按钮 */
-.float-buttons {
-  position: fixed;
-  bottom: 140rpx;
-  right: 20rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.float-button {
-  width: 80rpx;
-  height: 80rpx;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-bottom: 20rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
-}
-.float-button.kefu {
-  background-color: #6eb56e;
-}
-.float-button.cart {
-  background-color: #a7c4a0;
-}
-.float-icon {
-  width: 48rpx;
-  height: 48rpx;
 }
 </style> 

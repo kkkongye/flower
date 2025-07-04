@@ -9,31 +9,70 @@
 		{
 			"path": "pages/grower/grower",
 			"style": {
-				"navigationBarTitleText": "花卉种植者"
+				"navigationBarTitleText": "花卉种植者",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/grower/aigc",
+			"style": {
+				"navigationBarTitleText": "种植建议",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/grower/user",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/seller/seller",
 			"style": {
-				"navigationBarTitleText": "花卉售卖者"
+				"navigationBarTitleText": "花卉售卖者",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/seller/huapeng",
 			"style": {
-				"navigationBarTitleText": "附近花棚"
+				"navigationBarTitleText": "附近花棚",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/seller/user",
 			"style": {
-				"navigationBarTitleText": "个人中心"
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/seller/address",
 			"style": {
 				"navigationBarTitleText": "我的地址",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/seller/cart",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/seller/order",
+			"style": {
+				"navigationBarTitleText": "订单详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/seller/orders",
+			"style": {
+				"navigationBarTitleText": "订单列表",
 				"navigationStyle": "custom"
 			}
 		}

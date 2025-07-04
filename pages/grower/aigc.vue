@@ -1,69 +1,65 @@
 <template>
   <view class="container">
     <!-- 页面标题 -->
-    <page-title title="花卉售卖者"></page-title>
+    <page-title title="种植建议"></page-title>
     
     <!-- 搜索框 -->
     <view class="search-bar">
       <icon type="search" size="15" color="#07C160" />
-      <input type="text" value="玫瑰" disabled />
+      <input type="text" value="种植建议" disabled />
       <text class="iconfont search-icon">搜索</text>
     </view>
     
-    <!-- 上次订购 -->
+    <!-- 环境建议 -->
     <view class="section">
-      <view class="section-title">上次订购</view>
+      <view class="section-title">环境建议</view>
       <scroll-view scroll-x class="scroll-view">
-        <view class="flower-list">
-          <view class="flower-item" v-for="(item, index) in [0 , 1, 2]" :key="index">
-            <image :src="`/static/flower/flower${index+1}.jpg`" mode="aspectFill"></image>
+        <view class="advice-list">
+          <view class="advice-item" v-for="(item, index) in [1, 2, 3]" :key="index">
+            <image :src="`/static/huapeng/huapeng${index+1}.png`" mode="aspectFill"></image>
+            <view class="advice-overlay">
+              <text>温湿度调节</text>
+            </view>
           </view>
         </view>
       </scroll-view>
     </view>
     
-    <!-- 上次生成推荐 -->
+    <!-- 种植建议 -->
     <view class="section">
-      <view class="section-title">上次生成推荐</view>
+      <view class="section-title">种植建议</view>
       <scroll-view scroll-x class="scroll-view">
-        <view class="flower-list">
-          <view class="flower-item" v-for="(item, index) in [4, 5, 6]" :key="index">
-            <image :src="`/static/flower/flower${index+1}.jpg`" mode="aspectFill"></image>
+        <view class="advice-list">
+          <view class="advice-item" v-for="(item, index) in [2, 3, 1]" :key="index">
+            <image :src="`/static/huapeng/huapeng${index+1}.png`" mode="aspectFill"></image>
+            <view class="advice-overlay">
+              <text>养殖周期调整</text>
+            </view>
           </view>
         </view>
       </scroll-view>
     </view>
     
-    <!-- 今日推荐 -->
+    <!-- 智能助手 -->
     <view class="section">
-      <view class="section-title">今日推荐</view>
-      <view class="recommend-list">
-        <view class="recommend-item">
-          <view class="recommend-title">
-            礼物指南
+      <view class="section-title">智能助手</view>
+      <view class="assistant-list">
+        <view class="assistant-item">
+          <view class="assistant-title">
+            病虫害防治
             <text class="more">>></text>
           </view>
-          <view class="recommend-desc">真心落为心中挚爱</view>
-          <image src="/static/flower/flower1.jpg" mode="aspectFill"></image>
+          <view class="assistant-desc">专业解决方案</view>
+          <image src="/static/huapeng/huapeng1.png" mode="aspectFill"></image>
         </view>
-        <view class="recommend-item">
-          <view class="recommend-title">
-            节日特供
+        <view class="assistant-item">
+          <view class="assistant-title">
+            生长周期管理
             <text class="more">>></text>
           </view>
-          <view class="recommend-desc">好礼相伴好时节</view>
-          <image src="/static/flower/flower2.jpg" mode="aspectFill"></image>
+          <view class="assistant-desc">智能管理系统</view>
+          <image src="/static/huapeng/huapeng2.png" mode="aspectFill"></image>
         </view>
-      </view>
-    </view>
-    
-    <!-- 悬浮按钮 -->
-    <view class="float-buttons">
-      <view class="float-button kefu">
-        <image class="float-icon" src="/static/menu-icons/kefu.png"></image>
-      </view>
-      <view class="float-button cart" @click="goToCart">
-        <image class="float-icon" src="/static/menu-icons/shop.png"></image>
       </view>
     </view>
     
@@ -94,23 +90,15 @@ export default {
   components: {
     pageTitle
   },
-  data() {
-    return {}
-  },
   methods: {
     goToHuapeng() {
       uni.navigateTo({
-        url: '/pages/seller/huapeng'
+        url: '/pages/grower/grower'
       })
     },
     goToUser() {
       uni.navigateTo({
-        url: '/pages/seller/user'
-      })
-    },
-    goToCart() {
-      uni.navigateTo({
-        url: '/pages/seller/cart'
+        url: '/pages/grower/user'
       })
     }
   }
@@ -166,28 +154,40 @@ export default {
 .scroll-view {
   white-space: nowrap;
 }
-.flower-list {
+.advice-list {
   display: inline-flex;
   padding: 0 10rpx;
 }
-.flower-item {
-  width: 200rpx;
-  height: 200rpx;
+.advice-item {
+  width: 240rpx;
+  height: 180rpx;
   margin: 0 10rpx;
   border-radius: 16rpx;
   overflow: hidden;
+  position: relative;
 }
-.flower-item image {
+.advice-item image {
   width: 100%;
   height: 100%;
 }
+.advice-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
 
-/* 今日推荐 */
-.recommend-list {
+/* 智能助手 */
+.assistant-list {
   display: flex;
   padding: 0 20rpx;
 }
-.recommend-item {
+.assistant-item {
   flex: 1;
   background-color: #fff;
   border-radius: 16rpx;
@@ -195,7 +195,7 @@ export default {
   padding: 20rpx;
   position: relative;
 }
-.recommend-title {
+.assistant-title {
   font-size: 28rpx;
   font-weight: bold;
 }
@@ -204,40 +204,15 @@ export default {
   font-size: 24rpx;
   font-weight: normal;
 }
-.recommend-desc {
+.assistant-desc {
   font-size: 24rpx;
   color: #999;
   margin: 6rpx 0 10rpx;
 }
-.recommend-item image {
+.assistant-item image {
   width: 100%;
   height: 200rpx;
   border-radius: 12rpx;
-}
-
-/* 悬浮按钮 */
-.float-buttons {
-  position: fixed;
-  bottom: 140rpx;
-  right: 20rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.float-button {
-  width: 80rpx;
-  height: 80rpx;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-bottom: 20rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
-}
-.float-icon {
-  width: 48rpx;
-  height: 48rpx;
 }
 
 /* 底部导航栏 */

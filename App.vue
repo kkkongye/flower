@@ -14,4 +14,7 @@
 
 <style>
 	/*每个页面公共css */
+	.container {
+		padding-top: 100rpx; /* 为固定标题栏预留空间 */
+	}
 </style>

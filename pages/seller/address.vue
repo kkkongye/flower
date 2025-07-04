@@ -1,8 +1,9 @@
 <template>
   <view class="container">
-    <view class="header">
+    <!-- 页面标题 -->
+    <view class="custom-header">
       <view class="back-btn" @click="goBack">
-        <text class="iconfont">&#xe6a2;</text>
+        <image class="back-icon" src="/static/menu-icons/arrow-left.png"></image>
       </view>
       <view class="title">我的地址</view>
       <view class="placeholder"></view>
@@ -49,7 +50,7 @@
 export default {
   methods: {
     goBack() {
-      uni.navigateBack()
+      uni.navigateBack();
     }
   }
 }
@@ -70,29 +71,47 @@ export default {
   min-height: 100vh;
   background-color: #f8f8f8;
   padding-bottom: 40rpx;
+  padding-top: 100rpx; /* 为固定标题栏预留空间 */
 }
 
-.header {
+/* 自定义头部样式 */
+.custom-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  background-color: rgba(255, 255, 255, 0.95);
   display: flex;
   align-items: center;
-  padding: 20rpx;
-  background-color: #fff;
-  position: relative;
+  padding: 0 20rpx;
+  z-index: 100;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
 }
 
 .back-btn {
-  padding: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .title {
   flex: 1;
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: bold;
+  color: #333;
   text-align: center;
 }
 
 .placeholder {
-  width: 40rpx;
+  width: 60rpx;
 }
 
 /* 地图区域 */
@@ -188,5 +207,11 @@ export default {
   border-radius: 12rpx;
   font-size: 32rpx;
   font-weight: bold;
+}
+
+
+.menu-icon {
+  width: 40rpx;
+  height: 40rpx;
 }
 </style> 
