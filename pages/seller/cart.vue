@@ -26,11 +26,11 @@
           </view>
         </view>
         <view class="item-quantity">
-          <view class="quantity-btn minus" @click="decreaseQuantity(item)">
+          <view class="quantity-btn minus" @click.stop="decreaseQuantity(item)">
             <text>-</text>
           </view>
           <view class="quantity-number">{{ item.quantity }}</view>
-          <view class="quantity-btn plus" @click="increaseQuantity(item)">
+          <view class="quantity-btn plus" @click.stop="increaseQuantity(item)">
             <text>+</text>
           </view>
         </view>
@@ -129,10 +129,20 @@ export default {
     decreaseQuantity(item) {
       if (item.quantity > 1) {
         item.quantity--;
+      } else {
+        this.showToast('最少购买1件');
       }
     },
     increaseQuantity(item) {
       item.quantity++;
+    },
+    showToast(title) {
+      uni.showToast({
+        title: title,
+        icon: 'none',
+        duration: 1000,
+        position: 'bottom'
+      });
     },
     goToCheckout() {
       // 检查选中的商品
@@ -145,13 +155,10 @@ export default {
         });
         return;
       }
-      
-      // 将选中的商品转为JSON字符串
       const orderItems = JSON.stringify(selectedItems);
       const totalPrice = this.selectedTotal;
       const totalQuantity = this.selectedCount;
       
-      // 跳转到订单页面，并传递参数
       uni.navigateTo({
         url: `/pages/seller/order?items=${encodeURIComponent(orderItems)}&totalPrice=${totalPrice}&totalQuantity=${totalQuantity}`
       });
@@ -315,6 +322,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.quantity-btn:active {
+  opacity: 0.7;
+  transform: scale(0.95);
 }
 
 .quantity-number {
@@ -327,6 +341,11 @@ export default {
 .quantity-btn.plus {
   background-color: #a7c4a0;
   color: #fff;
+}
+
+.quantity-btn.minus {
+  background-color: #f0f0f0;
+  color: #333;
 }
 
 /* 结算栏 */

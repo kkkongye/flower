@@ -11,7 +11,7 @@
     </view>
     
     <!-- 花棚监控 -->
-    <view class="monitor-section">
+    <view class="monitor-section" @click="goToMonitor">
       <image src="/static/huapeng/huapeng1.png" mode="aspectFill" class="main-image"></image>
       <view class="location-info">
         <text>杭州市什么东西数字花房</text>
@@ -35,25 +35,52 @@
     <view class="section">
       <view class="section-title">异常报警 (2)</view>
       <view class="alert-list">
-        <view class="alert-item">
+        <view class="alert-item" @click="toggleSoilMoisture">
           <view class="alert-icon soil">
-            <image src="/static/icon/soil.png"></image>
+            <image src="/static/menu-icons/soil.png"></image>
           </view>
           <view class="alert-info">
             <view class="alert-title">土壤湿度过低</view>
-            <view class="alert-value">当前湿度: 34%</view>
+            <view class="alert-value">当前湿度: {{soilMoisture}}%</view>
           </view>
           <view class="settings-icon">⚙️</view>
         </view>
-        <view class="alert-item">
+        <view class="slider-container" v-if="showSoilSlider">
+          <view class="slider-title">调节土壤湿度</view>
+          <slider 
+            class="slider" 
+            :value="soilMoisture" 
+            @change="soilMoistureChange" 
+            show-value 
+            min="0" 
+            max="100"
+            activeColor="#b8d4f5"
+          />
+          <view class="slider-btn" @click="toggleSoilMoisture">确定</view>
+        </view>
+        
+        <view class="alert-item" @click="toggleTemperature">
           <view class="alert-icon temp">
-            <image src="/static/icon/temp.png"></image>
+            <image src="/static/menu-icons/temp.png"></image>
           </view>
           <view class="alert-info">
             <view class="alert-title">室内温度过高</view>
-            <view class="alert-value">当前温度: 47℃</view>
+            <view class="alert-value">当前温度: {{temperature}}℃</view>
           </view>
           <view class="settings-icon">⚙️</view>
+        </view>
+        <view class="slider-container" v-if="showTempSlider">
+          <view class="slider-title">调节室内温度</view>
+          <slider 
+            class="slider" 
+            :value="temperature" 
+            @change="temperatureChange" 
+            show-value 
+            min="0" 
+            max="50"
+            activeColor="#f5b8b8"
+          />
+          <view class="slider-btn" @click="toggleTemperature">确定</view>
         </view>
       </view>
     </view>
@@ -85,6 +112,14 @@ export default {
   components: {
     pageTitle
   },
+  data() {
+    return {
+      soilMoisture: 34,
+      temperature: 35,
+      showSoilSlider: false,
+      showTempSlider: false
+    }
+  },
   methods: {
     goToAIGC() {
       uni.navigateTo({
@@ -95,6 +130,29 @@ export default {
       uni.navigateTo({
         url: '/pages/grower/user'
       })
+    },
+    goToMonitor() {
+      uni.navigateTo({
+        url: '/pages/grower/monitor'
+      })
+    },
+    toggleSoilMoisture() {
+      this.showSoilSlider = !this.showSoilSlider
+      if (this.showSoilSlider) {
+        this.showTempSlider = false
+      }
+    },
+    toggleTemperature() {
+      this.showTempSlider = !this.showTempSlider
+      if (this.showTempSlider) {
+        this.showSoilSlider = false
+      }
+    },
+    soilMoistureChange(e) {
+      this.soilMoisture = e.detail.value
+    },
+    temperatureChange(e) {
+      this.temperature = e.detail.value
     }
   }
 }
@@ -250,6 +308,31 @@ export default {
 .settings-icon {
   font-size: 36rpx;
   color: #999;
+}
+
+/* 滑动条样式 */
+.slider-container {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin: -10rpx 0 20rpx;
+}
+.slider-title {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+.slider {
+  margin: 0 10rpx;
+}
+.slider-btn {
+  margin-top: 20rpx;
+  background-color: #6eb56e;
+  color: white;
+  text-align: center;
+  padding: 10rpx 0;
+  border-radius: 8rpx;
+  font-size: 28rpx;
 }
 
 /* 底部导航栏 */

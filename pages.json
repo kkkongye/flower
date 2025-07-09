@@ -28,6 +28,13 @@
 			}
 		},
 		{
+			"path": "pages/grower/monitor",
+			"style": {
+				"navigationBarTitleText": "花棚监控",
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/seller/seller",
 			"style": {
 				"navigationBarTitleText": "花卉售卖者",
