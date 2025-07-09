@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <!-- 页面标题 -->
-    <page-title title="智能搭配花材" :showBack="true"></page-title>
+    <page-title title="智能搭配花材" :showBack="true" backUrl="/pages/seller/nav/seller"></page-title>
     
     <!-- 顶部标题栏 -->
     <view class="header-banner">
@@ -46,29 +46,30 @@
         <input type="text" v-model="keyword" placeholder="请输入关键词" />
         <text class="keyword-hint">如：手捧，简约，明艳</text>
         <text class="word-count">{{keyword.length}}/100</text>
+        <view class="send-btn" @click="generateBouquet">发送</view>
       </view>
       <view class="tag-list">
-        <view class="tag" @click="selectTag('心情')">心情</view>
-        <view class="tag" @click="selectTag('运势')">运势</view>
-        <view class="tag" @click="selectTag('星座')">星座</view>
+        <view class="tag" :class="{ active: isTagSelected('心情') }" @click="selectTag('心情')">心情</view>
+        <view class="tag" :class="{ active: isTagSelected('运势') }" @click="selectTag('运势')">运势</view>
+        <view class="tag" :class="{ active: isTagSelected('星座') }" @click="selectTag('星座')">星座</view>
       </view>
     </view>
     
     <!-- 已生成结果 -->
-    <view class="section">
+    <view class="section" v-if="showResults">
       <view class="section-title">已为您智能生成以下花束：</view>
       <view class="result-grid">
         <view class="result-item" @click="viewResult(1)">
-          <image src="/static/flower/bouquet1.jpg" mode="aspectFill"></image>
+          <image src="/static/bouquet/bouquet1.png" mode="aspectFill"></image>
         </view>
         <view class="result-item" @click="viewResult(2)">
-          <image src="/static/flower/bouquet2.jpg" mode="aspectFill"></image>
+          <image src="/static/bouquet/bouquet2.png" mode="aspectFill"></image>
         </view>
         <view class="result-item" @click="viewResult(3)">
-          <image src="/static/flower/bouquet3.jpg" mode="aspectFill"></image>
+          <image src="/static/bouquet/bouquet3.png" mode="aspectFill"></image>
         </view>
         <view class="result-item" @click="viewResult(4)">
-          <image src="/static/flower/bouquet4.jpg" mode="aspectFill"></image>
+          <image src="/static/bouquet/bouquet4.png" mode="aspectFill"></image>
         </view>
       </view>
     </view>
@@ -103,7 +104,9 @@ export default {
   data() {
     return {
       keyword: '',
-      selectedTags: []
+      selectedTags: [],
+      showResults: false,
+      isGenerating: false
     }
   },
   methods: {
@@ -122,7 +125,35 @@ export default {
       } else {
         this.selectedTags.push(tag)
       }
-      console.log('选择标签', this.selectedTags)
+    },
+    isTagSelected(tag) {
+      return this.selectedTags.includes(tag)
+    },
+    generateBouquet() {
+      if (this.isGenerating) return;
+      
+      this.isGenerating = true;
+      
+      // 显示加载提示
+      uni.showLoading({
+        title: '正在生成花束...'
+      });
+      
+      // 模拟生成过程，实际项目中这里应调用接口
+      setTimeout(() => {
+        this.showResults = true;
+        this.isGenerating = false;
+        
+        // 隐藏加载提示
+        uni.hideLoading();
+        
+        // 生成成功提示
+        uni.showToast({
+          title: '花束生成成功',
+          icon: 'success',
+          duration: 2000
+        });
+      }, 1500);
     },
     viewResult(id) {
       uni.navigateTo({
@@ -228,6 +259,7 @@ export default {
 .keyword-input input {
   height: 80rpx;
   width: 100%;
+  padding-right: 100rpx;
 }
 
 .keyword-hint {
@@ -242,6 +274,22 @@ export default {
   bottom: 20rpx;
   font-size: 24rpx;
   color: #999;
+}
+
+.send-btn {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  background-color: #6eb56e;
+  color: white;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+
+.send-btn:active {
+  opacity: 0.8;
+  transform: scale(0.95);
 }
 
 /* 标签列表 */

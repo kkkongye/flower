@@ -322,6 +322,7 @@ export default {
 .recommend-list {
   display: flex;
   padding: 0 20rpx;
+  margin-bottom: 20rpx;
 }
 .recommend-item {
   flex: 1;
@@ -347,7 +348,7 @@ export default {
 }
 .recommend-item image {
   width: 100%;
-  height: 200rpx;
+  height: 180rpx;
   border-radius: 12rpx;
 }
 
@@ -436,5 +437,9 @@ export default {
 .section-title-wrapper:active {
   opacity: 0.7;
   background-color: rgba(255,255,255,0.8);
+}
+
+.section:last-child {
+  margin-bottom: 0;
 }
 </style> 
