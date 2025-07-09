@@ -216,7 +216,7 @@ export default {
     },
     goToHome() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     }
   }

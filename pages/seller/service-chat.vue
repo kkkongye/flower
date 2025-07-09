@@ -159,17 +159,17 @@
       // 页面导航
       goHome() {
         uni.navigateTo({
-          url: '/pages/seller/seller'
+          url: '/pages/seller/nav/seller'
         });
       },
       goToAIGC() {
         uni.navigateTo({
-          url: '/pages/seller/seller'
+          url: '/pages/seller/nav/seller'
         });
       },
       goToUser() {
         uni.navigateTo({
-          url: '/pages/seller/user'
+          url: '/pages/seller/nav/seller'
         });
       }
     }

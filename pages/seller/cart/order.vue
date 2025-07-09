@@ -92,16 +92,13 @@ export default {
     }
   },
   onLoad(options) {
-    // 接收购物车传递的参数
     if (options.items) {
       try {
-        // 解析商品数据
         this.orderItems = JSON.parse(decodeURIComponent(options.items));
       } catch (e) {
         console.error('解析商品数据失败', e);
       }
     } else {
-      // 如果没有传递商品数据，显示默认商品
       this.orderItems = [
         {
           id: 1,
@@ -142,7 +139,7 @@ export default {
     },
     goToCart() {
       uni.navigateTo({
-        url: '/pages/seller/cart'
+        url: '/pages/seller/cart/cart'
       })
     },
     goBack() {
@@ -150,7 +147,7 @@ export default {
     },
     goToHome() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     },
     goToServiceChat() {

@@ -187,12 +187,12 @@ export default {
     },
     goToCart() {
       uni.navigateTo({
-        url: '/pages/seller/cart'
+        url: '/pages/seller/cart/cart'
       });
     },
     goToHome() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     },
     goToServiceChat() {

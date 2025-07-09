@@ -35,21 +35,28 @@
 			}
 		},
 		{
-			"path": "pages/seller/seller",
+			"path": "pages/seller/nav/seller",
 			"style": {
 				"navigationBarTitleText": "花卉售卖者",
 				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/seller/huapeng",
+			"path": "pages/seller/flower-match",
+			"style": {
+				"navigationBarTitleText": "智能搭配花材",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/seller/nav/huapeng",
 			"style": {
 				"navigationBarTitleText": "附近花棚",
 				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/seller/user",
+			"path": "pages/seller/nav/user",
 			"style": {
 				"navigationBarTitleText": "个人中心",
 				"navigationStyle": "custom"
@@ -63,21 +70,21 @@
 			}
 		},
 		{
-			"path": "pages/seller/cart",
+			"path": "pages/seller/cart/cart",
 			"style": {
 				"navigationBarTitleText": "购物车",
 				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/seller/order",
+			"path": "pages/seller/cart/order",
 			"style": {
 				"navigationBarTitleText": "订单详情",
 				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/seller/orders",
+			"path": "pages/seller/cart/orders",
 			"style": {
 				"navigationBarTitleText": "订单列表",
 				"navigationStyle": "custom"

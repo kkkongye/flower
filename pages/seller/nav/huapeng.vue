@@ -110,22 +110,22 @@ export default {
     },
     goToHome() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     },
     goToAIGC() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     },
     goToUser() {
       uni.navigateTo({
-        url: '/pages/seller/user'
+        url: '/pages/seller/nav/user'
       })
     },
     goToCart() {
       uni.navigateTo({
-        url: '/pages/seller/cart'
+        url: '/pages/seller/cart/cart'
       })
     },
     goToServiceChat() {

@@ -114,17 +114,17 @@ export default {
   methods: {
     goToHome() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     },
     goToHuapeng() {
       uni.navigateTo({
-        url: '/pages/seller/huapeng'
+        url: '/pages/seller/nav/huapeng'
       })
     },
     goToAIGC() {
       uni.navigateTo({
-        url: '/pages/seller/seller'
+        url: '/pages/seller/nav/seller'
       })
     },
     goToIndex() {
@@ -139,12 +139,12 @@ export default {
     },
     goToCart() {
       uni.navigateTo({
-        url: '/pages/seller/cart'
+        url: '/pages/seller/cart/cart'
       })
     },
     goToOrders() {
       uni.navigateTo({
-        url: '/pages/seller/orders'
+        url: '/pages/seller/cart/orders'
       })
     },
     goToServiceChat() {

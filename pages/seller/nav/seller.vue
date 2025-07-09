@@ -10,6 +10,13 @@
       <text class="iconfont search-icon">搜索</text>
     </view>
     
+    <!-- 智能搭配花材按钮 -->
+    <view class="ai-match-btn" @click="goToFlowerMatch">
+      <image class="ai-match-icon" src="/static/icon/AIGC.png"></image>
+      <text>智能搭配花材</text>
+      <text class="ai-match-desc">秒配个性花束</text>
+    </view>
+    
     <!-- 上次订购 -->
     <view class="section">
       <view class="section-title-wrapper" @click="goToAllProducts">
@@ -153,19 +160,24 @@ export default {
     return {}
   },
   methods: {
+    goToFlowerMatch() {
+      uni.navigateTo({
+        url: '/pages/seller/flower-match'
+      })
+    },
     goToHuapeng() {
       uni.navigateTo({
-        url: '/pages/seller/huapeng'
+        url: '/pages/seller/nav/huapeng'
       })
     },
     goToUser() {
       uni.navigateTo({
-        url: '/pages/seller/user'
+        url: '/pages/seller/nav/user'
       })
     },
     goToCart() {
       uni.navigateTo({
-        url: '/pages/seller/cart'
+        url: '/pages/seller/cart/cart'
       })
     },
     goToAllProducts() {
@@ -230,6 +242,38 @@ export default {
 }
 .search-icon {
   color: #999;
+}
+
+/* 智能搭配花材按钮 */
+.ai-match-btn {
+  display: flex;
+  align-items: center;
+  background-color: #f0f8f1;
+  border: 1px solid #d8e8d9;
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+
+.ai-match-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+
+.ai-match-btn text {
+  font-size: 30rpx;
+  color: #6eb56e;
+  font-weight: bold;
+}
+
+.ai-match-desc {
+  position: absolute;
+  right: 20rpx;
+  font-size: 24rpx !important;
+  color: #a7c4a0 !important;
+  font-weight: normal !important;
 }
 
 /* 通用部分样式 */
